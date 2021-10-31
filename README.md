@@ -1,6 +1,4 @@
-# EarnUp FE Challenge
-
-Initial commit cloned from: https://github.com/EarnUp/fe-challenge
+# Final code for FE take home assignment
 
 # Getting Started
 
@@ -11,6 +9,6 @@ npm i -g nodemon
 ```
 
 1. Clone this repository
-1. Navigate to client folder: `cd earnup-fe-challenge`
+1. Navigate to the folder
 1. Install node modules: `npm install`
 1. Start the client: `npm start`
