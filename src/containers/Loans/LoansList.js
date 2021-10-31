@@ -8,6 +8,7 @@ export default function LoansList() {
   const dispatch = useDispatch();
   const loansList = useSelector(getLoansList);
   const loansStatus = useSelector(state => state.loans.status);
+  const error = useSelector(state => state.loans.error)
 
   useEffect(() => {
     if (loansStatus === 'idle') {
@@ -15,13 +16,22 @@ export default function LoansList() {
     }
   }, [loansStatus, dispatch]);
 
+  let content = '';
+  if (loansStatus === 'loading') {
+    content = 'Loading content...';
+  } else if (loansStatus === 'succeeded') {
+    if (loansList.length > 0) {
+      content = loansList.map(loan => <Loan key={loan.id} loan={loan} />);
+    } else {
+      content = "NO LOANS AVAILABLE";
+    }
+  } else if (loansStatus === 'failed') {
+    content = error;
+  } 
+
   return (
     <List>
-      {
-      loansList ?
-      loansList.map(loan => <Loan key={loan.id} loan={loan} />) :
-      "NO LOANS AVAILABLE"
-      }
+      {content}
     </List>
   );
 }

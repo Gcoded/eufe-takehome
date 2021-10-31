@@ -23,7 +23,7 @@ export default function Loan(props) {
     `Debit Days of the Month: ${daysOfMonth.toString()}`;
 
   return (
-    <Card>
+    <Card key={id}>
       <CardContent>
         <Typography gutterBottom variant="h5">
           {lenderName}

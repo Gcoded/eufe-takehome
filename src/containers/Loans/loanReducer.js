@@ -2,13 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const requestLoans = createAsyncThunk('loans/requestLoans', async () => {
-  try {
     const url = 'https://my-json-server.typicode.com/EarnUp/demo/loans';
     const response = await axios.get(url);
     return response.data;
-  } catch (error) {
-    console.error(error);
-  }
 });
 
 export const loans = createSlice({
