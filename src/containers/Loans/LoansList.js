@@ -17,9 +17,11 @@ export default function LoansList() {
 
   return (
     <List>
-      {/* Map loans list here... */}
-      {console.log(loansList)}
-      <Loan />
+      {
+      loansList ?
+      loansList.map(loan => <Loan key={loan.id} loan={loan} />) :
+      "NO LOANS AVAILABLE"
+      }
     </List>
   );
 }

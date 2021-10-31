@@ -6,24 +6,48 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-export default function Loan() {
+export default function Loan(props) {
+  const {
+    lenderName,
+    id,
+    scheduleType,
+    debitDayOfWeek,
+    monthlyPaymentAmount,
+    paymentDueDay,
+    debitStartDate,
+    daysOfMonth
+  } = props.loan;
+
+  const debitSchedule = scheduleType === 'biweekly' ?
+    `Debit Day of the Week: ${debitDayOfWeek}` :
+    `Debit Days of the Month: ${daysOfMonth.toString()}`;
+
   return (
     <Card>
       <CardContent>
         <Typography gutterBottom variant="h5">
-          Lender Name
+          {lenderName}
         </Typography>
 
         <Typography variant="body2" color="textSecondary" component="p">
-          ID: zzzzz
+          ID: {id}
         </Typography>
         <List dense={false}>
           <ListItem>
-            <ListItemText primary="Item Label" secondary={"Secondary copy"} />
+            <ListItemText
+              primary={`Monthly Payment Amount: ${monthlyPaymentAmount}`}
+              secondary={`Payment Due Day: ${paymentDueDay}`}
+            />
           </ListItem>
 
           <ListItem>
-            <ListItemText primary="Item Label" secondary={"Secondary copy"} />
+            <ListItemText
+              primary={`Schedule Type: ${scheduleType}`}
+              secondary={debitSchedule}
+            />
+            <ListItemText
+              primary={`Debit Start Date: ${debitStartDate}`}
+            />
           </ListItem>
         </List>
       </CardContent>
