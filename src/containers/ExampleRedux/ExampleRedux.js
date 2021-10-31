@@ -16,7 +16,7 @@ export default function ExampleRedux() {
         Redux Example
       </Typography>
 
-      <Card gutterBottom>
+      <Card>
         <CardContent>
           <Typography variant="h5">Simple Counter</Typography>
           <Typography align="center" variant="subtitle1">
